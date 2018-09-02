@@ -1,0 +1,90 @@
+http://www.lightrains.com/blog/decompiling-android-apk
+
+http://code.google.com/p/android-apktool/downloads/detail?name=apktool1.5.1.tar.bz2
+
+http://androidopera.blogspot.in/2013/02/how-to-get-source-files-from-apk-file.html
+
+
+jd-gui downloader>>>>>>>>>>>>>>>>>>>>>>>>>>>
+http://jd.benow.ca/#jd-gui-download
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<MyPractice>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+1. first copy the .apk file from bin folder of project and paste it outside in some folder like folder>> TEST
+2. Let our .apk file is happy.apk then change its file name from happy.apk-->happy.apk.zip
+3. Extract this happy.apk.zip file in a folder(mean its all file should be in this folder not a package// after extract whatever files we got just put all files in newly created folder) let newly created folder is AndroidSource
+4. now extract this dex2jar-0.0.9.15.zip  zip file in the same folder AndroidSource(Take care that all the extracted file in AndroidSource folder not a unzipped package of dex2jar-0.0.9.15 zip file // 
+5. So now in AndroidSource folder there are all the files of happy.apk.zip unzip file and dex2jar-0.0.9.15.zip unzip file independently
+6. Now open command prompt//terminal and reach to the AndroidSource folder directory where all the files are availeble of both previouysly unzipped files[(hint to check by some files like classes.dex and most of the files with d2j words)]
+Now run the command 
+for windows---d2j-dex2jar classes.dex		OR  dex2jar classes.dex
+for linux--- sh dex2jar.sh classes.dex
+By this command we got the classes.dex.dex2jar.zip or classes.dex2jar.zip file in that same folder{AndroidSources}
+This zip folder is having all the source files of the project //java file and lib files{{{{not xml and images//res folder}}}}}
+We have to get it by decompile>>>so copy jd-gui-0.3.6.windows.zip file in the AndroidSources folder also copy the DCompiler.zip in the same folder and unzip both by unzipping we got a tool jd-gui just double click on it and a tool will open, now go to its file>openfiles
+and browse the classes-dex2jar.zip file which was available in same folder AndroidSources  
+By all this u got the java files and classes in the tool now go to file>saveallsources of the tool this will give u all the src files save them
+8.to get xml files do another task>>>>>>>>>>
+apktool-install-windows-r05-ibot.tar and apktool1.5.2.tar extrac both folders in the AndroidSources folder,
+also keep this framework-res.apk and projectapk(happy.apk) file in the AndroidSources folder
+
+open command window and run>>>>>>>>> apktool if framework-res.apk <<<<<<<<<< for windows 
+>>>>>>>>>>>>>>>>sh apktool if framework-res.apk <<<<<<<<<<<<<<<<<<<<<<for linux
+
+run this one also apktool d "fname".apk<<<<<<<<<here fname is same as fname==>>>happy  for windows
+ sh apktool d "fname".apk (for mac)
+
+ Now you get a file folder in that folder AndroidSources and now you can easily read xml files also.
+
+
+
+
+
+
+
+We are discussing here about to get the source from an .apk file.
+
+ 
+
+Follow the procedure given below, to retrieve source from an apk file.
+
+Start with renaming the extension of file from .apk to .zip (eg:rename from filename.apk to filename.apk.zip) then extract it. Then you will get files including classes.dex file. We can use the tool dex2jar for getting .jar files from the file with .dex extension.
+
+You can download the tool from the link http://code.google.com/p/dex2jar/. Extract the files into the same folder where the classes.dex file is located.
+
+Now open command prompt and reach to the folder where the classes.dex file is located. Then type the command
+
+dex2jar classes.dex (for windows)
+
+sh dex2jar.sh classes.dex (for mac)
+
+and and press enter. Now you get classes.dex.dex2jar file in the same folder.
+
+Now download java decompiler from http://java.decompiler.free.fr/?q=jdgui and double click on jd-gui and click on open file then open classes.dex.dex2jar file from that folder. Then you can see the source files in the jd-gui window. You can save the source files by selecting File>Save All Sources option.
+
+Then you will get the source files as zip. We need to do one more step to retrieve correct xml files like layout files and Android-Manifest.xml file etc. For that you need another tool named "apktool v1.x". You will get it from the link http://code.google.com/p/android-apktool/. Download apktool1.5.1.tar.bz2 and dependencies according to your System OS.
+
+Extract both and put the content in the same folder where the .apk file is located. Download framework-res.apk and put in the same location where the .apk file you want to decode is located. Now open a command window. Navigate to the directory where your .apk file is located and type the following command:
+
+        apktool if framework-res.apk 
+
+                         or
+
+       sh apktool if framework-res.apk (for mac)
+
+And then
+
+        apktool d "fname".apk
+
+                      or
+
+         sh apktool d "fname".apk (for mac)
+
+ ("fname" denotes name of the .apk file which you want to decode) .
+
+ Now you get a file folder in that folder and now you can easily read xml files also.
+
+That's all done. Enjoy!!!.
